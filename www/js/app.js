@@ -45,7 +45,7 @@ define(function(require) {
 			storeButton = $("#store-btn"),
 			getSecret = function () {
 				if (!secret) {
-					secret = prompt("Enter secret for encryption");
+					secret = prompt(document.webL10n.get("alert-enter-secret"));
 				}
 				return secret;
 			},
