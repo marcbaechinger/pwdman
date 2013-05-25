@@ -56,7 +56,8 @@ define(function(require) {
 					try {
 						storedData = JSON.parse(sjcl.decrypt(getSecret(), localStorage.passwords));
 					} catch (e) {
-						alert("decryption failed. Probably your secret is wrong.");
+						
+						alert(document.webL10n.get("alert-decryption-failed"));
 						secret = undefined;
 						loadData(collection);
 						return;
@@ -92,18 +93,14 @@ define(function(require) {
 			        $('input[name=site]', this).val(item.get('title'));
 			        $('input[name=user]', this).val(item.get('user'));
 			        $('input[name=password]', this).val(item.get('password'));
-					if (item.get("title")) {
-						storeButton.text("save");
-					} else {
-						storeButton.text("add");
-					}
+					storeButton.text(document.webL10n.get("button-save"));
 			    };
 			    edit.getTitle = function() {
 			        var model = this.view.model;
 			        if(model) {
 			            return model.get('title');
 			        } else {
-			            return 'New';
+			            return document.webL10n.get("header-new");
 			        }
 			    };
 			},
@@ -140,7 +137,7 @@ define(function(require) {
 					        edit.close();
 						},
 						function error () {
-							alert("storing failed. Wrong secret?");
+							alert(document.webL10n.get("alert-storing-failed"));
 			            	secret = undefined;
 						}
 					);
@@ -159,7 +156,7 @@ define(function(require) {
 									list.view.render();
 								}, 
 								function error () {
-									alert("storing failed. Wrong secret?")
+									alert(document.webL10n.get("alert-storing-failed")
 									secret = undefined;
 								}
 							);
@@ -183,7 +180,7 @@ define(function(require) {
 		clicks: {
 			"button.dropSecret": function () {
 				this.dropSecret();
-				alert("secret dropped");
+				alert(document.webL10n.get("alert-secret-dropped"));
 			},
 			"button.delete": function () {
 				
