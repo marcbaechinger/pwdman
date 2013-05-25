@@ -156,7 +156,7 @@ define(function(require) {
 									list.view.render();
 								}, 
 								function error () {
-									alert(document.webL10n.get("alert-storing-failed")
+									alert(document.webL10n.get("alert-storing-failed"));
 									secret = undefined;
 								}
 							);
