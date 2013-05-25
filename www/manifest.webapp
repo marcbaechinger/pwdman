@@ -1,0 +1,18 @@
+{
+  "version": "0.1",
+  "name": "PwdMan",
+  "description": "App to store passwords secretly",
+  "launch_path": "http://marcbaechinger.github.com/pwd-manager/index.html",
+  "icons": {
+    "16": "/img/icons/mortar-16.png",
+    "48": "/img/icons/mortar-48.png",
+    "128": "/img/icons/mortar-128.png"
+  },
+  "developer": {
+    "name": "Marc Baechinger",
+    "url": "https://github.com/marcbaechinger"
+  },
+  "installs_allowed_from": ["*"],
+  "locales": {},
+  "default_locale": "en"
+}

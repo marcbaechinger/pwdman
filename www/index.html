@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+
+	<link rel="resource" type="application/l10n" href="lang.ini"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <x-listview class="list">
+      <header>
+        <button class="dropSecret" title="Drops secret to prompt again before next use" data-l10n-id="drop-button-label"></button>
+        <h1 data-l10n-id="header-account-list"></h1>
+        <button class="add" data-view=".edit" data-animation="slideDown" title="add a credential">+</button>
+      </header>
+    </x-listview>
+
+    <x-view class="detail">
+      <header>
+        <h1 data-l10n-id="header-details"></h1>
+        <button data-view="x-view.edit" data-l10n-id="button-edit"></button>
+      </header>
+      <label data-l10n-id="form-label-user"></label>
+	  <p class="user"></p>
+      <label data-l10n-id="form-label-password"></label>
+	  <p class="password"></p>
+      <button type="submit" data-view=".list" class="btn delete" data-l10n-id="button-save"></button>
+    </x-view>
+
+    <x-view class="edit">
+      <header><h1 data-l10n-id="header-edit"></h1></header>
+      <div class="field">
+		  <label for="site" data-l10n-id="form-label-site"></label> 
+		  <input type="text" name="site" />
+	  </div>
+      <div class="field">
+		  <label for="user" data-l10n-id="form-label-username"></label>
+		  <input type="text" name="user" />
+	  </div>
+      <div class="field">
+		  <label data-l10n-id="form-label-password"></label>
+		  <input type="password" name="password" />
+	  </div>
+      <button id="store-btn" type="submit" class="btn add" data-l10n-id="button-save"></button>
+    </x-view>
+
+    <div class="loading" data-l10n-id="label-loading"></div>
+
+    <!-- Using require.js, a module system for javascript, include the
+         js files. This loads "main.js", which in turn can load other
+         files, all handled by require.js:
+         http://requirejs.org/docs/api.html#jsfiles -->
+	<script src="js/lib/sjcl.js"> </script>
+	<script src="js/l10n.js"> </script>
+    
+    <script type="text/javascript"
+            data-main="js/init.js"
+            src="js/lib/require.js"></script>
+  </body>
+</html>
