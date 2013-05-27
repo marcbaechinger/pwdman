@@ -1,0 +1,50 @@
+CACHE MANIFEST
+# QO6eikV5qXjhxunHOLzUv6pOhT8=
+
+CACHE:
+index.html
+favicon.ico
+lang.ini
+manifest.webapp
+mortar-16.png
+css/app.css
+css/fonts.css
+css/install-button.css
+css/responsive.css
+css/fonts/Moz Light.otf
+css/fonts/Moz Medium.otf
+css/fonts/Moz Regular.otf
+css/fonts/MozTT Light.ttf
+css/fonts/MozTT Medium.ttf
+css/fonts/MozTT Regular.ttf
+img/glyphicons-halflings-white.png
+img/glyphicons-halflings.png
+img/icons/mortar-128.png
+img/icons/mortar-16.png
+img/icons/mortar-48.png
+js/app.js
+js/init.js
+js/l10n.js
+js/install-button.js
+js/lib/require.js
+js/lib/sjcl.js
+js/lib/receiptverifier.js
+js/lib/install.js
+js/lib/zepto.js
+js/lib/x-tag.js
+js/lib/underscore.js
+js/lib/backbone.js
+js/lib/layouts/css/layouts.css
+js/lib/layouts/anim.js
+js/lib/layouts/css-animations.js
+js/lib/layouts/header.js
+js/lib/layouts/footer.js
+js/lib/layouts/view.js
+js/lib/layouts/list.js
+js/lib/layouts/layouts.js
+
+# catch-all for anything else
+NETWORK:
+*
+http://*
+https://*
