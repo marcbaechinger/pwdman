@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html manifest="manifest.appcache">
   <head>
     <meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title></title>
 
 	<link rel="resource" type="application/l10n" href="lang.ini"/>
@@ -21,7 +21,7 @@
       <header>
         <button class="dropSecret" title="Drops secret to prompt again before next use" data-l10n-id="drop-button-label"></button>
         <h1 data-l10n-id="header-account-list"></h1>
-        <button class="add" data-view=".edit" data-animation="slideDown" title="add a credential">+</button>
+        <button class="add" data-view=".edit" data-animation="slideDown" title="add a credential">&nbsp;+&nbsp;</button>
       </header>
     </x-listview>
 
@@ -33,8 +33,10 @@
       <label data-l10n-id="form-label-user"></label>
 	  <p class="user"></p>
       <label data-l10n-id="form-label-password"></label>
-	  <p class="password"></p>
-      <button type="submit" data-view=".list" class="btn delete" data-l10n-id="button-delete"></button>
+
+	  <p class="password-cover">&nbsp;</p>
+	  <p class="password-area"><span class="password"></span></p>
+      <button type="submit" data-view=".list" class="btn bottom delete" data-l10n-id="button-delete"></button>
     </x-view>
 
     <x-view class="edit">
@@ -51,7 +53,7 @@
 		  <label data-l10n-id="form-label-password"></label>
 		  <input type="password" name="password" />
 	  </div>
-      <button id="store-btn" type="submit" class="btn add" data-l10n-id="button-save"></button>
+      <button id="store-btn" type="submit" class="btn save bottom add" data-l10n-id="button-save"></button>
     </x-view>
 
     <div class="loading" data-l10n-id="label-loading"></div>

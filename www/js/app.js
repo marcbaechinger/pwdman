@@ -105,14 +105,31 @@ define(function(require) {
 			    };
 			},
 			initEventHandling = function () {
-				$("p.password", detail).click(function (e) {
-					var target = $(e.target);
-					target.addClass("password-unveiled");
-					setTimeout(function () {
-						target.removeClass("password-unveiled");
-					}, 10 * 1000);
+				var cover = $(".password-cover"),
+					coverTimeout;
+				$(".password-area, p.password-cover", detail).click(function (e) {
+					if (!cover.hasClass("show")) {
+						coverTimeout = setTimeout(function () {
+							cover.removeClass("show");
+							coverTimeout = undefined;
+						}, 5000);
+						cover.addClass("show");	
+					} else {
+						clearTimeout(coverTimeout);
+						coverTimeout = undefined;
+						cover.removeClass("show");	
+					}
 				});
 	
+			    $('button.update', edit).click(function() {
+			    	selectedItem.set("title", el.find('input[name=site]').val());
+			    	selectedItem.set("user", el.find('input[name=user]').val());
+			    	selectedItem.set("password", el.find('input[name=password]').val());
+			    });
+				
+			    $('button.add', list).click(function() {
+			    	selectedItem = undefined;
+			    });
 			    $('button.add', edit).click(function() {
 			        var el = $(edit),
 						model = edit.model,
@@ -124,9 +141,18 @@ define(function(require) {
 							user: user.val(),
 							password: pwd.val()
 						},
+						dataToStore;
+					
+					if (!selectedItem) {
 						dataToStore = list.collection.toJSON();
-				
-					dataToStore.push(uiInputData);
+						dataToStore.push(uiInputData);
+					} else {
+						selectedItem.attributes.title = el.find('input[name=site]').val();
+			    		selectedItem.attributes.user = el.find('input[name=user]').val();
+			    		selectedItem.attributes.password = el.find('input[name=password]').val();
+						dataToStore = list.collection.toJSON();
+					}
+
 					storeData(dataToStore,
 						function success () {
 					        if(model) {
@@ -135,6 +161,7 @@ define(function(require) {
 					            list.add(uiInputData);
 					        }
 					        edit.close();
+							$(detail).find("h1").text(uiInputData.title);
 						},
 						function error () {
 							alert(document.webL10n.get("alert-storing-failed"));

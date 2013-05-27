@@ -7,7 +7,7 @@
 
 @import "fonts.css";
 
-input, button {
+html , body, input, button, x-view, label, p {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -18,10 +18,6 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-html, body {
-    height: 100%;
 }
 
 body {
@@ -35,12 +31,36 @@ h1 {
 	padding-top: 0.2rem !important;
 }
 
-x-view .contents {
-    padding: 1em;
+x-view > header {
+	border-bottom: 1px solid rgb(0, 0, 0)
+}
+.btn.bottom {
+	position: absolute;
+	bottom: 1rem;
+	left: 0;
+	z-index: 9999;
+}
+.btn.delete {
+	background-color: #ff0000;
+	color: #fff;
+}
+.btn.save {
+	background-color: darkgreen;
+	color: #fff;
 }
 
+x-view {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
 x-view .contents {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+	position: relative;
 	font-size: 2rem;
+	height: 361px;
 }
 
 x-view h1 {
@@ -105,13 +125,51 @@ p.user {
 	border-radius: 4px;
 	padding: 5px;
 }
-p.password {
-	background-color: black;
+span.password {
+	background-color: silver;
+	border: 1px solid #333;
+	color: #333;
+	border-radius: 0.3rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+p.password-area {
+	background-color: #fff;
 	color: black;
 	text-align: center;
 	border-radius: 4px;
+	line-height: 4rem;
 	padding: 5px;
+	position: absolute;
+	left: -2rem;
+	right: -2rem;
+	border-radius: 0;
+	height: 5rem;
+	
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 78%, rgba(176,175,176,1) 100%); /* FF3.6+ */
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 78%,rgba(176,175,176,1) 100%); /* W3C */
 }
-p.password-unveiled {
+.password-unveiled {
 	color: white;
+}
+.password-cover {
+	margin: 0;
+	position: absolute;
+	border-top: 1px solid #ededed;
+	background-color: #ededed;
+	-moz-transition: height 1s, background-color 1s;
+	-webkit-transition: height 1s, background-color 1s;
+	-o-transition: height 1s, background-color 1s;
+	transition: height 1s, background-color 1s;
+	z-index: 1000;
+	left: -2rem;
+	right: -2rem;
+	bottom: -1px;
+	height: 11.8rem;
+}
+.password-cover.show {
+	height: 6.8rem;
+	background-color: #cecece;
+	border-top: 1px solid #999;
 }
