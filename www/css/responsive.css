@@ -42,8 +42,11 @@
 
 /*Portrait*/
 @media all and (min-width: 540px) {
-  html { font-size: 150% !important; }
-  x-view .contents {
+  html { 
+	  font-size: 150% !important; 
+  }
+  
+  x-view div .contents {
   	height: 780px;
   }
   .password-cover {

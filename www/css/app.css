@@ -173,3 +173,62 @@ p.password-area {
 	background-color: #cecece;
 	border-top: 1px solid #999;
 }
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="search"], input[type="url"], input[type="number"], textarea {
+	height: 2.5rem;
+	line-height: 2.5rem;
+}
+.line {
+	position: relative;
+}
+x-view.edit .field .site-input {
+	width: 80%;
+}
+section .cancel-list {
+	-moz-box-sizing: border-box;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	margin-bottom: 1rem;
+}
+#site-chooser {
+	width: 18%;
+	position: absolute;
+	right: 0px;
+	top: -0.8rem;
+	height: 2.5rem;
+	line-height: 0.3rem;
+}
+.list-container {
+	background-color: white;
+	height: 100%;
+	left: -1.5rem;
+	opacity: 0;
+	overflow: auto;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+#sites li {
+	height: 4rem;
+}
+#sites li p {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	line-height: 2rem;
+}
+.fadein {
+	animation: fadeIn 0.2s forwards;
+	z-index: 99999;
+}
+.fadeout {
+	animation: fadeOut 0.2s forwards;	
+}
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+/* Close Value Selector */
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}

@@ -12,9 +12,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Place favicon.ico in the root directory -->
-
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/lists.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/responsive.css">
+
   </head>
   <body>
     <x-listview class="list">
@@ -43,7 +46,10 @@
       <header><h1 data-l10n-id="header-edit"></h1></header>
       <div class="field">
 		  <label for="site" data-l10n-id="form-label-site"></label> 
-		  <input type="text" name="site" />
+		  <div class="line">
+			  <button class="btn" id="site-chooser">...</button>
+			  <input type="text" class="site-input" name="site" id="site"/>
+		  </div>
 	  </div>
       <div class="field">
 		  <label for="user" data-l10n-id="form-label-username"></label>
@@ -55,6 +61,43 @@
 	  </div>
       <button id="store-btn" type="submit" class="btn save bottom add" data-l10n-id="button-save"></button>
     </x-view>
+	
+  <section id="sites" class="list-container" data-type="list">
+    <header>Social Networks</header>
+    <ul>
+      <li>
+        <p>Facebook</p>
+      </li>
+      <li>
+        <p>Twitter</p>
+      </li>
+      <li>
+        <p>Google+</p>
+      </li>
+      <li>
+        <p>LinkedIn</p>
+      </li>
+      <li>
+        <p>Xing</p>
+      </li>
+      <li>
+        <p>Yelp</p>
+      </li>
+    </ul>
+    <header>Technology</header>
+    <ul>
+        <li>
+          <p>Github</p>
+        </li>
+        <li>
+          <p>Bitkeeper</p>
+        </li>
+        <li>
+          <p>bit.ly</p>
+        </li>
+    </ul>
+	<a role="button" class="cancel-list button">Cancel</button>
+  </section>
 
     <div class="loading" data-l10n-id="label-loading"></div>
 

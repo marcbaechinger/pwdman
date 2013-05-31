@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# QO6eikV5qXjhxunHOLzUv6pOhT8=
+# QO6eikV5qXjhxunHOLzUv6pOhT899=
 
 CACHE:
 index.html
@@ -11,6 +11,9 @@ css/app.css
 css/fonts.css
 css/install-button.css
 css/responsive.css
+css/lists.css
+css/input.css
+css/buttons.css
 css/fonts/Moz Light.otf
 css/fonts/Moz Medium.otf
 css/fonts/Moz Regular.otf

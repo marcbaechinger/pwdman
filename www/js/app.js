@@ -21,7 +21,9 @@ define(function(require) {
 	};
 	Controller.prototype.init = function () {},
 	Controller.prototype.initEvents = function() {
-		var that = this;
+		var that = this,
+			container = $(this.selector);
+			
 		if (this.clicks) {
 			$.each(this.clicks, function (selector, handler) {
 				$(selector).click(function () {
@@ -29,9 +31,39 @@ define(function(require) {
 				});
 			});
 		}
+		
+		if (this.fade) {
+			container.bind("animationstart", function () {
+				console.log("start");
+			});
+			container.bind("animationend", function () {
+				console.log("end", container.css("z-index"));
+				if (!that.isShown) {
+					console.log("remove");
+					container.removeClass("fadein").removeClass("fadeout");
+				}
+			});
+		}
+	};
+	Controller.prototype.show = function () {
+		if (this.fade) {
+			$(this.selector)
+				.addClass("fadein");
+		} else {
+			$(this.selector).show();
+		}
+		this.isShown = true;
+	};
+	Controller.prototype.hide = function () {
+		if (this.fade) {
+			$(this.selector)
+				.addClass("fadeout");
+		} else {
+			$(this.selector).hide();
+		}
+		this.isShown = false;
 	};
 	
-
     // Write your app here.
 	var Application = function ($, spec) {
 
@@ -43,6 +75,21 @@ define(function(require) {
 			detail = $('.detail').get(0),
 			edit = $('.edit').get(0),
 			storeButton = $("#store-btn"),
+			siteListController = new Controller({
+				selector: "#sites",
+				targetSelector: "#site",
+				fade: true,
+				clicks: {
+					"ul": function (ev) {
+						var label = $(ev.target).closest("li").find("p").text();
+						$(this.targetSelector).val(label);
+						this.hide();
+					},
+					".cancel-list": function () {
+						this.hide();
+					}
+				}
+			}),
 			getSecret = function () {
 				if (!secret) {
 					secret = prompt(document.webL10n.get("alert-enter-secret"));
@@ -119,6 +166,10 @@ define(function(require) {
 						coverTimeout = undefined;
 						cover.removeClass("show");	
 					}
+				});
+				
+				$("#site-chooser", edit).click(function () {
+					siteListController.show();
 				});
 	
 			    $('button.update', edit).click(function() {
