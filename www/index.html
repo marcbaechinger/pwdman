@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="manifest.appcache">
+<html>
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -25,16 +25,21 @@
   <body>
     <x-listview class="list">
       <header>
-        <button class="dropSecret" title="Drops secret to prompt again before next use" data-l10n-id="drop-button-label"></button>
+        <button id="drop-button" class="button btn" title="Drops secret to prompt again before next use">
+			<i class="icon locked"></i>
+		</button>
         <h1 data-l10n-id="header-account-list"></h1>
-        <button class="add" data-view=".edit" data-animation="slideDown" title="add a credential">&nbsp;+&nbsp;</button>
+        <button class="button btn add" data-view="x-view.edit" data-animation="slideDown" title="add a credential">
+			<i class="icon plus"></i>
+		</button>
       </header>
     </x-listview>
 
     <x-view class="detail">
       <header>
+        <button class="button" onclick="$('x-view.detail').get(0).close();"><i class="icon back"></i></button>
         <h1 data-l10n-id="header-details"></h1>
-        <button data-view="x-view.edit" data-l10n-id="button-edit"></button>
+        <button class="button" data-view="x-view.edit"><i class="icon edit"></i></button>
       </header>
       <label data-l10n-id="form-label-user"></label>
 	  <p class="user"></p>
@@ -46,7 +51,12 @@
     </x-view>
 
     <x-view class="edit">
-      <header><h1 data-l10n-id="header-edit"></h1></header>
+      <header>
+	      <button class="button" onclick="$('x-view.edit').get(0).close();">
+			  <i class="icon back"></i>
+		  </button>
+		  <h1 data-l10n-id="header-edit"></h1>
+	  </header>
       <div class="field">
 		  <label for="site" data-l10n-id="form-label-site"></label> 
 		  <div class="line">

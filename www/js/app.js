@@ -33,13 +33,8 @@ define(function(require) {
 		}
 		
 		if (this.fade) {
-			container.bind("animationstart", function () {
-				console.log("start");
-			});
 			container.bind("animationend", function () {
-				console.log("end", container.css("z-index"));
 				if (!that.isShown) {
-					console.log("remove");
 					container.removeClass("fadein").removeClass("fadeout");
 				}
 			});
@@ -72,9 +67,10 @@ define(function(require) {
 		var secret,
 			selectedItem,
 			list = $('.list').get(0),
-			detail = $('.detail').get(0),
-			edit = $('.edit').get(0),
+			detail = $('x-view.detail').get(0),
+			edit = $('x-view.edit').get(0),
 			storeButton = $("#store-btn"),
+			dropSecretButtonIcon = $("#drop-button i"),
 			siteListController = new Controller({
 				selector: "#sites",
 				targetSelector: "#site",
@@ -102,9 +98,12 @@ define(function(require) {
 					console.log("loadData: encrypted password data available in localstore");
 					try {
 						storedData = JSON.parse(sjcl.decrypt(getSecret(), localStorage.passwords));
+						dropSecretButtonIcon.addClass("unlocked");
+						dropSecretButtonIcon.removeClass("locked");
 					} catch (e) {
-						
 						alert(document.webL10n.get("alert-decryption-failed"));
+						dropSecretButtonIcon.addClass("locked");
+						dropSecretButtonIcon.removeClass("unlocked");
 						secret = undefined;
 						loadData(collection);
 						return;
@@ -121,6 +120,8 @@ define(function(require) {
 					if (localStorage.passwords) {
 						try {
 							sjcl.decrypt(getSecret(), localStorage.passwords);
+							dropSecretButtonIcon.addClass("unlocked");
+							dropSecretButtonIcon.removeClass("locked");
 						} catch (e) {
 							error(e);
 							return;
@@ -246,6 +247,8 @@ define(function(require) {
     
 		this.dropSecret = function () {
 			secret = undefined;
+			dropSecretButtonIcon.addClass("locked");
+			dropSecretButtonIcon.removeClass("unlocked");
 		};
 		loadData(list.collection);
 		initViews();
@@ -256,9 +259,8 @@ define(function(require) {
 	
 	new Application($, {
 		clicks: {
-			"button.dropSecret": function () {
+			"#drop-button": function () {
 				this.dropSecret();
-				alert(document.webL10n.get("alert-secret-dropped"));
 			},
 			"button.delete": function () {
 				
