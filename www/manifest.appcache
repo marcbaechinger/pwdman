@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# QO6eikV5qXjhxunHOLzUv6pOhT899=
+# QO6eikV5qXjhxunHOLzUv6pOhT89=
 
 CACHE:
 index.html
@@ -20,6 +20,11 @@ css/fonts/Moz Regular.otf
 css/fonts/MozTT Light.ttf
 css/fonts/MozTT Medium.ttf
 css/fonts/MozTT Regular.ttf
+css/icons/action_icons.css
+css/icons/action_icons.png
+css/icons/media_icons.css
+css/icons/media_icons.png
+css/icons/sprite.css
 img/glyphicons-halflings-white.png
 img/glyphicons-halflings.png
 img/icons/mortar-128.png

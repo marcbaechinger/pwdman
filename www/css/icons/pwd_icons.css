@@ -1,0 +1,11 @@
+x-listview > header .navitems .pwd-icon {
+	background-color: red;
+	background-image: url(action_icons.png);
+	background-repeat: no-repeat;
+	width: 32px;
+	height: 32px;
+	overflow: hidden;
+}
+.pwd-icon.compose {
+	background-position: 32px 0;
+}
